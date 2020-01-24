@@ -1,0 +1,20 @@
+{
+    "variables": {
+        "do_token": "{{ env `DO_TOKEN` }}"
+    },
+    "builders": [{
+        "type": "digitalocean",
+        "api_token": "{{user `do_token`}}",
+        "image": "debian-10-x64",
+        "region": "lon1",
+        "size": "s-1vcpu-1gb",
+        "ssh_username": "root",
+        "snapshot_name": "heartbeat-{{timestamp}}"
+    }],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./install.sh"
+        }
+    ]
+}
