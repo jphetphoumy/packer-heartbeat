@@ -1,6 +1,6 @@
 {
     "variables": {
-        "do_token": ""
+        "do_token": "{{ env `DO_TOKEN` }}"
     },
     "builders": [{
         "type": "digitalocean",
